@@ -15,6 +15,11 @@ module.exports = {
       },
       center: true
     },
+    extend: {
+      colors: {
+        primary: '#F6DA63',
+      }
+    }
   },
   variants: {},
   plugins: [],

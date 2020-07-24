@@ -2,29 +2,27 @@
   <div>
     <h1 class="mt-32 mb-4 text-2xl font-bold">Menu Kami</h1>
     <div class="wrap-menu">
-      <Menu name="Semua" icon="fast-food.svg" />
-      <Menu name="Mie Ayam" icon="ramen.svg" />
-      <Menu name="Bakso" icon="meatball.svg" />
-      <Menu name="Minuman" icon="water.svg" />
+      <Category name="Semua" icon="fast-food.svg" to />
+      <Category name="Mie Ayam" icon="ramen.svg" to="mie-ayam" />
+      <Category name="Bakso" icon="meatball.svg" to="bakso" />
+      <Category name="Minuman" icon="water.svg" to="minuman" />
+    </div>
+    <div class="grid grid-cols-1 gap-1 mt-4 lg:gap-4 lg:row-gap-8 lg:grid-cols-3">
+      <Menu />
+      <Menu />
+      <Menu />
+      <Menu />
+      <Menu />
+      <Menu />
     </div>
   </div>
 </template>
 
 <script>
+import Category from "~/components/Category.vue";
 import Menu from "~/components/Menu.vue";
 export default {
-  data() {
-    return {
-      aktip: "ubah",
-    };
-  },
-  components: { Menu },
-
-  methods: {
-    change() {
-      console.log($nuxt.$route.name);
-    },
-  },
+  components: { Category, Menu },
 };
 </script>
 

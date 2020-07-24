@@ -7,7 +7,7 @@
           <img src="@/assets/icon.png" alt="Icon" class="w-4/12 lg:w-auto" />
           <ul class="inline-flex">
             <li>
-              <a class="px-4 py-2 font-medium bg-yellow-500 rounded-md" href="#">Daftar</a>
+              <a class="px-4 py-2 font-medium text-white rounded-md bg-primary" href="#">Daftar</a>
             </li>
             <li>
               <a class="px-4 py-2" href="#">Masuk</a>
@@ -18,7 +18,9 @@
         <Nuxt />
       </div>
       <!-- #region Desktop -->
-      <div class="fixed right-0 hidden w-3/12 h-screen bg-red-400 lg:block"></div>
+      <div class="fixed right-0 hidden w-3/12 h-screen lg:block">
+        <h1 class="mt-4 font-bold text-center">Hi Keranjang</h1>
+      </div>
       <!-- #endregion -->
     </div>
     <!-- Mobile -->
@@ -32,6 +34,9 @@ export default {};
 
 <style>
 * {
-  font-family: "Montserrat";
+  font-family: Montserrat, sans-serif;
+}
+body {
+  background: #f5f6f7;
 }
 </style>
