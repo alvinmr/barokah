@@ -1,78 +1,41 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        barokah
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+  <div>
+    <h1 class="mt-32 mb-4 text-2xl font-bold">Menu Kami</h1>
+    <div class="wrap-menu">
+      <Menu name="Semua" icon="fast-food.svg" />
+      <Menu name="Mie Ayam" icon="ramen.svg" />
+      <Menu name="Bakso" icon="meatball.svg" />
+      <Menu name="Minuman" icon="water.svg" />
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import Menu from "~/components/Menu.vue";
+export default {
+  data() {
+    return {
+      aktip: "ubah",
+    };
+  },
+  components: { Menu },
+
+  methods: {
+    change() {
+      console.log($nuxt.$route.name);
+    },
+  },
+};
 </script>
 
 <style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.wrap-menu {
+  @apply flex items-center justify-start p-2 overflow-scroll rounded-lg;
 }
 
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+@screen lg {
+  .wrap-menu {
+    @apply h-48 overflow-visible bg-gray-300 p-4;
+  }
 }
 </style>

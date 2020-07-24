@@ -1,62 +1,37 @@
 <template>
   <div>
-    <Nuxt />
+    <div class="container flex">
+      <div class="w-full pb-10 lg:w-9/12">
+        <!-- #region Navbar -->
+        <div class="flex items-center justify-between mt-4">
+          <img src="@/assets/icon.png" alt="Icon" class="w-4/12 lg:w-auto" />
+          <ul class="inline-flex">
+            <li>
+              <a class="px-4 py-2 font-medium bg-yellow-500 rounded-md" href="#">Daftar</a>
+            </li>
+            <li>
+              <a class="px-4 py-2" href="#">Masuk</a>
+            </li>
+          </ul>
+        </div>
+        <!-- #endregion -->
+        <Nuxt />
+      </div>
+      <!-- #region Desktop -->
+      <div class="fixed right-0 hidden w-3/12 h-screen bg-red-400 lg:block"></div>
+      <!-- #endregion -->
+    </div>
+    <!-- Mobile -->
+    <div class="fixed bottom-0 block w-full h-16 bg-teal-500 lg:hidden"></div>
   </div>
 </template>
 
+<script>
+export default {};
+</script>
+
 <style>
-html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+* {
+  font-family: "Montserrat";
 }
 </style>
