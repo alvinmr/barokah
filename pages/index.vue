@@ -8,9 +8,9 @@
       <Category name="Minuman" icon="water.svg" to="minuman" />
     </div>
     <div class="grid grid-cols-1 gap-1 mt-4 lg:gap-4 lg:row-gap-8 lg:grid-cols-3">
-      <Menu />
-      <Menu />
-      <Menu />
+      <Menu :id="1" name="Mie Ayam 1" />
+      <Menu :id="2" name="Mie Ayam 2" />
+      <Menu :id="3" name="Mie Ayam 3" />
       <Menu />
       <Menu />
       <Menu />
@@ -26,14 +26,14 @@ export default {
 };
 </script>
 
-<style>
+<style >
 .wrap-menu {
   @apply flex items-center justify-start p-2 overflow-scroll rounded-lg;
 }
 
 @screen lg {
   .wrap-menu {
-    @apply h-48 overflow-visible bg-gray-300 p-4;
+    @apply flex flex-auto justify-center p-3 overflow-visible;
   }
 }
 </style>

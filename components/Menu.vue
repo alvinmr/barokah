@@ -3,7 +3,7 @@
     <div
       class="relative flex flex-row p-4 bg-white rounded-lg menu lg:flex-col lg:w-64 lg:h-full hover:shadow-xl"
     >
-      <div class="absolute right-0 p-1 mr-4 bg-white rounded-full shadow-md cursor-pointer">
+      <div class="absolute right-0 p-1 mr-2 bg-white rounded-full shadow-lg cursor-pointer">
         <svg
           @click="love"
           viewBox="0 0 14 14"
@@ -20,13 +20,18 @@
           />
         </svg>
       </div>
-      <div class="flex w-32 h-32 mr-4 lg:w-full lg:h-full lg:items-start lg:justify-center">
+      <div
+        class="flex self-center justify-center w-20 h-20 mr-4 lg:w-full lg:h-full lg:items-start lg:justify-center"
+      >
         <img src="@/assets/img/mieayambaksopolos.png" class="lg:w-1/2" alt />
       </div>
-      <div class="flex flex-col flex-wrap justify-center mt-4 text-left">
-        <h1 class="font-bold">Mie Ayam Bakso</h1>
+      <div class="mt-4 text-left">
+        <h1 class="text-xs font-bold">Mie Ayam Bakso Ceker Telur</h1>
         <h3 class="font-medium">Rp 10.000</h3>
-        <button class="px-2 py-2 mt-4 text-xs font-bold bg-primary">Tambah</button>
+        <button
+          @click="addToCart({'id': id,'name' : name, 'price': 12000, 'qty': 1})"
+          class="px-2 py-2 mt-4 text-xs font-bold bg-primary"
+        >Tambah</button>
       </div>
     </div>
   </div>
@@ -34,6 +39,10 @@
 
 <script>
 export default {
+  props: {
+    id: Number,
+    name: String,
+  },
   data() {
     return {
       isFav: false,
@@ -41,8 +50,10 @@ export default {
   },
   methods: {
     love() {
-      if (this.isFav == true) this.isFav = false;
-      else this.isFav = true;
+      this.isFav = !this.isFav;
+    },
+    addToCart(data) {
+      this.$store.dispatch("localStorage/addToCart", data);
     },
   },
 };
