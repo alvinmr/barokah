@@ -13,6 +13,9 @@ export const mutations = {
   ADD_ITEM_CART(state, payload) {
     state.items.push(payload)
   },
+  SET_QTY_CART(state, id, payload) {
+    state.items.find(item => item.id == id).qty = payload
+  },
   INCREASE_QTY_CART(state, id) {
     state.items.find(item => item.id == id).qty++
   },
@@ -50,12 +53,22 @@ export const actions = {
     } else {
       commit('DECREASE_QTY_CART', id)
     }
+  },
+  increaseCartQty: ({
+    commit,
+    state
+  }, id) => {
+    if (state.items.find(item => item.id == id).qty < 10) {
+      commit('INCREASE_QTY_CART', id)
+    } else {
+      alert('Stok tidak lebih dari 10')
+    }
   }
 }
 
 export const getters = {
   total: (state) => {
-    return state.items.reduce((sum, curr) => (sum + curr.price) * curr.qty, 0)
+    return state.items.reduce((sum, curr) => sum + curr.price * curr.qty, 0)
   },
   getField
 }

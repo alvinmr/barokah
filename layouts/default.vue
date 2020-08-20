@@ -131,16 +131,10 @@
                 class="btn-qty"
                 @click="$store.dispatch('localStorage/decreaseCartQty', item.id)"
               >-</button>
-              <input
-                type="number"
-                v-model.number="item.qty"
-                maxlength="100"
-                class="w-12 px-2 bg-white"
-                disabled
-              />
+              <input type="number" v-model.number="item.qty" class="w-12 px-2 bg-white" disabled />
               <button
                 class="btn-qty"
-                @click="$store.commit('localStorage/INCREASE_QTY_CART', item.id)"
+                @click="$store.dispatch('localStorage/increaseCartQty', item.id)"
               >+</button>
             </div>
             <p class="font-bold text-gray-500">{{ item.price * item.qty | currency}}</p>
